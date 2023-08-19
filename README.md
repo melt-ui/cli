@@ -15,6 +15,6 @@ Installs MeltUI in your SvelteKit project.
 
 Options:
   -y, --yes        Skip confirmation prompt.
-  -c, --cwd <cwd>  The working directory. (default: "/home/koala/Tests/melt-init")
+  -c, --cwd <cwd>  The working directory.
   -h, --help       display help for command
 ```
