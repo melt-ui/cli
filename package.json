@@ -15,7 +15,7 @@
 	"keywords": [],
 	"author": "",
 	"type": "module",
-	"license": "ISC",
+	"license": "MIT",
 	"dependencies": {
 		"commander": "^11.0.0",
 		"execa": "^8.0.1",
