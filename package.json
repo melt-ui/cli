@@ -1,0 +1,47 @@
+{
+	"name": "@melt-ui/cli",
+	"version": "0.0.0",
+	"description": "",
+	"bin": "./dist/index.js",
+	"scripts": {
+		"dev": "tsup --watch",
+		"build": "tsup --minify",
+		"lint": "prettier --check . && eslint .",
+		"lint:write": "prettier --write . && eslint . --fix",
+		"format": "prettier --write .",
+		"check": "tsc --noEmit",
+		"release": "pnpm run build && changeset publish"
+	},
+	"keywords": [],
+	"author": "",
+	"type": "module",
+	"license": "ISC",
+	"dependencies": {
+		"commander": "^11.0.0",
+		"execa": "^8.0.1",
+		"ora": "^7.0.1",
+		"prettier": "^3.0.2",
+		"prompts": "^2.4.2"
+	},
+	"devDependencies": {
+		"@antfu/ni": "^0.21.5",
+		"@changesets/cli": "^2.26.2",
+		"@types/estree": "^1.0.1",
+		"@types/node": "^18.17.6",
+		"@types/prompts": "^2.4.4",
+		"@typescript-eslint/eslint-plugin": "^6.4.0",
+		"@typescript-eslint/parser": "^6.4.0",
+		"acorn": "^8.10.0",
+		"astring": "^1.8.6",
+		"chalk": "^5.3.0",
+		"eslint": "^8.47.0",
+		"eslint-config-prettier": "^9.0.0",
+		"estree-walker": "^3.0.3",
+		"tsup": "^7.2.0",
+		"type-fest": "^4.2.0",
+		"typescript": "^5.1.6"
+	},
+	"files": [
+		"dist"
+	]
+}
