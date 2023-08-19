@@ -22,7 +22,7 @@ export const init = new Command()
 	.command('init')
 	.description('Installs MeltUI in your SvelteKit project.')
 	.option('-y, --yes', 'Skip confirmation prompt.')
-	.option('-c, --cwd <cwd>', 'the working directory.', process.cwd())
+	.option('-c, --cwd <cwd>', 'The working directory.', process.cwd())
 	.action(async (options) => {
 		const cwd = path.resolve(options.cwd);
 		// Ensure target directory exists
