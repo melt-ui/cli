@@ -122,11 +122,11 @@ async function updateSvelteConfig(svelteConfigPath: string) {
 	configSpinner.succeed();
 }
 
-async function installDependencies(cwd: string, noPP: boolean) {
+async function installDependencies(cwd: string, installPP: boolean) {
 	const dependenciesSpinner = ora(`Installing dependencies...`).start();
 	const packageManager = await getPackageManager(cwd);
 
-	const deps = noPP ? ['@melt-ui/svelte'] : PROJECT_DEPENDENCIES;
+	const deps = installPP ? PROJECT_DEPENDENCIES : ['@melt-ui/svelte'];
 
 	await execa(packageManager, [packageManager === 'npm' ? 'install' : 'add', '-D', ...deps], {
 		cwd,
