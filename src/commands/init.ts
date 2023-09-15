@@ -56,12 +56,12 @@ export const init = new Command()
 			// Get svelte config
 			const svelteConfigPath = await promptForSvelteConfigPath();
 
+			await installDependencies(cwd, !!svelteConfigPath);
+
 			if (svelteConfigPath) {
 				// Update config to install PP
 				await updateSvelteConfig(svelteConfigPath);
 			}
-
-			await installDependencies(cwd, !!svelteConfigPath);
 
 			logger.info('');
 			logger.info(`${chalk.green('Success!')} MeltUI installation completed.`);
@@ -123,8 +123,8 @@ async function updateSvelteConfig(svelteConfigPath: string) {
 }
 
 async function installDependencies(cwd: string, installPP: boolean) {
-	const dependenciesSpinner = ora(`Installing dependencies...`).start();
 	const packageManager = await getPackageManager(cwd);
+	const dependenciesSpinner = ora(`Installing dependencies with ${packageManager}...`).start();
 
 	const deps = installPP ? PROJECT_DEPENDENCIES : ['@melt-ui/svelte'];
 
