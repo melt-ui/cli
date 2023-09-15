@@ -1,5 +1,11 @@
 # @melt-ui/cli
 
+## 0.0.4
+
+### Patch Changes
+
+- 67f3b0f: fix: Changed install order to ensure dependencies are installed before MeltUI is added
+
 ## 0.0.3
 
 ### Patch Changes
