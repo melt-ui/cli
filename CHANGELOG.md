@@ -1,5 +1,11 @@
 # @melt-ui/cli
 
+## 0.0.5
+
+### Patch Changes
+
+- 35088a0: fix: If no lockfile is found, install dependencies via the user-agent
+
 ## 0.0.4
 
 ### Patch Changes
