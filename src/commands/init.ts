@@ -59,9 +59,7 @@ export const init = new Command()
 				await updateSvelteConfig(svelteConfigPath);
 			}
 
-			logger.info('');
-			logger.info(`${chalk.green('Success!')} MeltUI installation completed.`);
-			logger.info('');
+			logger.info(`\n${chalk.green('Success!')} MeltUI installation completed.\n`);
 		} catch (e) {
 			handleError(e);
 		}

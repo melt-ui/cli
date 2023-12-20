@@ -6,6 +6,7 @@ import type { CallExpression, ImportDeclaration } from 'estree';
 import type { Node } from 'estree-walker';
 import prettier from 'prettier';
 import { generate } from 'astring';
+import chalk from 'chalk';
 
 type ParsedSvelteConfig = ReturnType<typeof parseSvelteConfig>;
 
@@ -28,6 +29,8 @@ export async function installMeltPP(config: ParsedSvelteConfig) {
 	// @ts-expect-error body is always there
 	ast.body.unshift(...createPPImports());
 
+	let ppFound = false;
+
 	const updatedSvelteConfig = walk(ast as Node, {
 		enter(node) {
 			if (node.type !== 'Property') return;
@@ -39,6 +42,8 @@ export async function installMeltPP(config: ParsedSvelteConfig) {
 			const isLiteral = node.key.type === 'Literal' && node.key.value === 'preprocess';
 
 			if (!isIdentifier && !isLiteral) return;
+
+			ppFound = true;
 
 			const ppCallExpression: CallExpression = {
 				type: 'CallExpression',
@@ -83,8 +88,16 @@ export async function installMeltPP(config: ParsedSvelteConfig) {
 		},
 	});
 
+	if (ppFound === false) {
+		throw new Error(
+			`The ${chalk.cyan('preprocess')} field is missing in ${chalk.cyanBright(
+				'svelte.config.js'
+			)}. Add ${chalk.cyan('preprocess: []')} to the config and run again.`
+		);
+	}
+
 	if (!updatedSvelteConfig) {
-		throw new Error('Could not update svelte.config.js');
+		throw new Error(`Could not update ${chalk.cyanBright('svelte.config.js')}.`);
 	}
 
 	attachComments(updatedSvelteConfig, comments);
