@@ -10,11 +10,7 @@ import { handleError } from '../utils/handle-error.js';
 import { logger } from '../utils/logger.js';
 import { installMeltPP, isMeltPPInstalled, parseSvelteConfig } from '../utils/add-pp.js';
 
-const PROJECT_DEPENDENCIES = [
-	'@melt-ui/svelte',
-	'@melt-ui/pp',
-	'svelte-sequential-preprocessor',
-] as const;
+const PROJECT_DEPENDENCIES = ['@melt-ui/svelte', '@melt-ui/pp'] as const;
 
 const highlight = (text: string) => chalk.cyan(text);
 

@@ -147,17 +147,12 @@ function createPPImports(): Array<ImportDeclaration> {
 						name: 'preprocessMeltUI',
 					},
 				},
-			],
-			source: {
-				type: 'Literal',
-				value: '@melt-ui/pp',
-			},
-		},
-		{
-			type: 'ImportDeclaration',
-			specifiers: [
 				{
-					type: 'ImportDefaultSpecifier',
+					type: 'ImportSpecifier',
+					imported: {
+						type: 'Identifier',
+						name: 'sequence',
+					},
 					local: {
 						type: 'Identifier',
 						name: 'sequence',
@@ -166,7 +161,7 @@ function createPPImports(): Array<ImportDeclaration> {
 			],
 			source: {
 				type: 'Literal',
-				value: 'svelte-sequential-preprocessor',
+				value: '@melt-ui/pp',
 			},
 		},
 	];
