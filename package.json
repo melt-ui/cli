@@ -1,6 +1,6 @@
 {
 	"name": "@melt-ui/cli",
-	"version": "0.0.5",
+	"version": "0.1.0",
 	"description": "",
 	"bin": "./dist/index.js",
 	"scripts": {

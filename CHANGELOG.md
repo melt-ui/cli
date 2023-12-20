@@ -1,5 +1,15 @@
 # @melt-ui/cli
 
+## 0.1.0
+
+### Minor Changes
+
+- 2fa818a: feat: Replaced `svelte-sequential-preprocessor`
+
+### Patch Changes
+
+- b97e12a: chore: Added an error message if the `preprocess` field is missing from `svelte.config.js`
+
 ## 0.0.5
 
 ### Patch Changes
